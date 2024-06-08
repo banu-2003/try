@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images of a Girl and a Boy</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS for the audio player */
+        .audio-player {
+            text-align: center;
+            margin-top: 20px; /* Adjust margin as needed */
+            display: block; /* Ensure the audio player is displayed */
+        }
+
+        /* CSS for the play button */
+        .audio-player button {
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            display: none; /* Initially hide the button */
+        }
+
+        /* CSS to move the button */
+        .audio-player button {
+            position: relative;
+            top: 10px;
+            right:200px; /* Adjust vertical position as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container" style="position: relative;">
+            <img src="boy3-removebg-preview.png" alt="Boy Image">
+            <div class="message-bubble side" id="boyMessage"></div>
+        </div>
+        <div class="image-container" id="girlContainer" style="position: relative;">
+            <img src="em chestunnav.png" alt="Girl Image" id="girlImage">
+            <div class="message-bubble side" id="girlMessage">Oyy....Em chestunnav</div>
+            <!-- Audio player with autoplay and play/pause button -->
+            <div class="audio-player" id="audioPlayer">
+                <button onclick="togglePlayPause()">Ikkada click cheyy chepthaa</button>
+                <audio id="backgroundMusic" src="Ringtone.mp3" preload="auto" loop></audio>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle play/pause
+        function togglePlayPause() {
+            var audio = document.getElementById('backgroundMusic');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
+        // Initial dynamic text content for the message bubbles
+        document.getElementById('girlMessage').innerText = "Oyy....Em chestunnav";
+
+        // Change the boy's message bubble text after 2 seconds
+        setTimeout(function() {
+            document.getElementById('boyMessage').innerText = "Nee gurinchey aalochisthunna";
+        }, 2000); // 2000 milliseconds = 2 seconds
+
+        // Change the girl's image and message bubble text after 5 seconds
+        setTimeout(function() {
+            document.getElementById('girlImage').src = "em aalochistunnav.png"; // Replace with the correct path to the new girl image
+            document.getElementById('girlMessage').innerText = "Ahann..Em aalochisthunnav";
+            
+            // Show the play button after 2 seconds of displaying "Em aalochisthunnav"
+            setTimeout(function() {
+                document.querySelector('.audio-player button').style.display = 'inline-block';
+            }, 2000);
+        }, 5000); // 5000 milliseconds = 5 seconds (3 seconds after the boy's message appears)
+
+        // Listen for the audio to start playing
+        var audio = document.getElementById('backgroundMusic');
+        audio.addEventListener('play', function() {
+            // Change the boy's message when the audio starts playing
+            document.getElementById('boyMessage').innerText = "Kasturilaa Maari Nee Nudhutane Cheri… Kadadhaaka Kalisundanaa\nKanneerulaa Maari Nee Chempapai Jaari… Kalathalni Kariginchanaa\n\nNee Kotagaa Maarendhuke… Naa Gunde Chaatullo Chotunnadhi\nNee Vaadigaa Undendhuke… Ee Nindu Noorella Janmunnadhi";
+        });
+    </script>
+</body>
+</html>

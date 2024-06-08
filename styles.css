@@ -1,0 +1,40 @@
+body {
+    background-color: #ffffff; /* White background */
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    align-items: center; /* Center the images vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    gap: 250px; /* Space between the images */
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    width: 300px; /* Set the desired width */
+    height: 400px; /* Set the desired height */
+    object-fit: cover; /* Ensures the image covers the set dimensions while preserving aspect ratio */
+      /* Optional: Add a border around images */
+}
+
+.message-bubble {
+    position: absolute;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 150px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.message-bubble.side {
+    top: 10%;
+    left: calc(100% + 10px); /* Position the side message bubble to the right of the image */
+    transform: translateY(-50%);
+}
